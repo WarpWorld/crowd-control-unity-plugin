@@ -165,9 +165,9 @@ Base effect for bid war effects
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 BidWarEntries|**Dictionary<uint, BidWarEntry>**|A collection of every bid war entry registered for this effect
-*override* Name|string|Gets the name of the current bid war winner. If no winner or if the winner has no name, it will return the name of the bid war effect
-*override* Icon|Sprite|Gets the icon of the current bid war winner. If no winner or if the winner has no icon, it will return the icon of the bid war effect
-*override* IconColor|Color|Gets the tint of the current bid war winner. If no winner or if the winner has no icon tint, it will return the tint of the bid war effect
+*override* Name|**string**|Gets the name of the current bid war winner. If no winner or if the winner has no name, it will return the name of the bid war effect
+*override* Icon|**Sprite**|Gets the icon of the current bid war winner. If no winner or if the winner has no icon, it will return the icon of the bid war effect
+*override* IconColor|**Color**|Gets the tint of the current bid war winner. If no winner or if the winner has no icon tint, it will return the tint of the bid war effect
 
 #### Public Methods
 Name          |Type          |Description
