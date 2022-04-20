@@ -83,7 +83,6 @@ OnEffectReset|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect gets
 Holds information about Twitch users interacting with the Crowd Control session.
 
 #### Public Attributes
-
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 id|**ulong**|Unique Twitch user identifier
@@ -92,4 +91,29 @@ displayName|**string**|User's Display Name
 profileIconUrl|**string**|URL to download the profile icon from
 profileIcon|**Texture2D**|Profile icon downloaded into a 2D texture. Can be null 
 profileIconColor|**Color**|Tint of the user's icon
+
+### CCEffectBase
+Information of an effect that can be triggered.
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+displayName|**string**|Name of the effect displayed to the users
+description|**string**|Information about the effect, displayed in the extension
+price|**uint**|How much the effect costs to trigger
+icon|**Sprite**|Image to display in the CrowdControl Twitch extension and in the onscreen overlay
+iconColor|**Color**|Tint of the icon
+maxRetries|**int**|Number of retries before the effect instance fails
+retryDelay|**float**|Delay in seconds before retrying to trigger an effect instance
+pendingDelay|**float**|Delay in seconds to wait before triggering the next effect instance
+
+#### Public Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+ToggleSellable(**bool** sellable)|**void**|Toggles whether this effect can currently be sold during this session
+ToggleVisible(**bool** visible)|**void**|Toggles whether this effect is visible in the menu during this session
+virtual Params()|**string**|Returns a list of parameters for this effect as a string
+virtual CanBeRan()|**bool**|Overriden by base classes that return true if the effect is able to be ran at this time
+virtual RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Registers a paramter for this effect
+virtual HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
 
