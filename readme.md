@@ -30,12 +30,13 @@ ToggleEffectSellable(**uint** effectID, **bool** sellable)|void|Toggles whether 
 ToggleEffectSellable(**uint** effectID, **bool** visible)|void|Toggles whether an effect is visible in the menu during this session
 SubmitTempToken(**string** token)|void|Submits Temporary Token to the server. Gets a response whether or not it was valid and begins the Crowd Control Session if successful
 TestEffect(**CCEffectBase** effect)|void|Takes an effect and triggers it locally. For testing purposes only
-PauseEffect(**CCEffectTimed** effect)|void|Resumes a timed effect
-ResumeEffect(**CCEffectTimed** effect)|void|Pauses a timed effect
-ResetEffect(**CCEffectTimed** effect)|void|Resets a timed effect to its original start time
 StopAllEffects()|void|Forcefully terminates all pending and running effects
 CancelEffect(**CCEffectInstance** effectInstance)|void|Cancels an effect that's sitting in the queue. Sender will receive a refund
 HasRunningEffects()|bool|Returns true if at least one timed effect is currently running
 IsRunning(**CCEffectTimed** effect)|bool|Returns true if at least one timed effect is currently running
 IsPaused(**CCEffectTimed** effect)|bool|Returns true if timed effect is paused
 
+#### Static Public Member Functions
+PauseEffect(**CCEffectTimed** effect)|void|Resumes a timed effect
+ResumeEffect(**CCEffectTimed** effect)|void|Pauses a timed effect
+ResetEffect(**CCEffectTimed** effect)|void|Resets a timed effect to its original start time
