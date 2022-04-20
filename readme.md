@@ -119,8 +119,6 @@ ToggleVisible(**bool** visible)|**void**|Toggles whether this effect is visible 
 ### CCEffect : Inherits from CCEffectBase
 A single-trigger effect with no extra properties
 
-
-
 ### CCEffectParameters : Inherits from CCEffectBase
 A Crowd Control effect that handles parameters
 
@@ -136,7 +134,6 @@ AddParameters(params **object[] prms**)|**void**|Dynamically adds object(s) to t
 ClearParameters()|**void**|Clears the established parameter list
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. 
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID.
-
 
 ### CCEffectTimed : Inherits from CCEffectBase
 A Crowd Control effect active for a given duration of time
@@ -187,6 +184,15 @@ retryCount|**int**|How many times this effect was attempted to be ran
 unscaledStartTime|**float**|Unscaled game time when the effect was triggered
 isTest|**bool**|True if this effect was triggered by a local test
 
+### CCEffectInstanceParameters : Inherits from CCEffectInstance
+An instance of a Crowd Control effect with parameters.
+
+#### Public Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+AssignParameters(**string** newParams)|**void**|Takes a list of parameters separated by a comma and assigns them to this effect instance
+GetParameter(**int** index)|**string**|Gets the parameter entry at a specific index
+
 ### CCEffectInstanceTimed : Inherits from CCEffectInstance
 An instance of a running Crowd Control effect. Disposed once the effect is complete.
 
@@ -198,3 +204,11 @@ unscaledTimeLeft|**float**|Unscaled game time left to execute
 isActive|**bool**|Whether the effect instance is active. True when the related Effect behaviour is enabled
 isPaused|**bool**|Whether the effect instance is paused or not
 shouldBeRunning|**bool**|Checks if the effect should be running or not, then applies the paused state based on it
+
+### CCEffectInstanceBidWar : Inherits from CCEffectInstance
+An instance of a running Crowd Control Bid War effect.
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+BidName|**string**|The name of what was bid on
+BidAmount|**uint**|The amount of coins spent on this bid
