@@ -156,7 +156,7 @@ Name          |Type          |Description
 |*abstract* OnPauseEffect()|**void**|Invoked when an effect instance is paused
 |*abstract* OnResumeEffect()|**void**|Invoked when an effect instance is resumed
 |*abstract* OnResetEffect()|**void**|Invoked when an effect instance is reset
-|*abstract* OnStopEffect()|**bool**|
+|*abstract* OnStopEffect(**CCEffectInstanceTimed** effectInstance, **bool** force)|**bool**|Attempts to stop an effect. Force is set to true if the effect doesn't end when time runs out. Returns true if stopping the effect was successful.
 
 ### CCEffectBidWar : Inherits from CCEffectBase
 Base effect for bid war effects
