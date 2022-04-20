@@ -128,25 +128,46 @@ A Crowd Control effect that handles parameters
 #### Properties
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
+ParameterEntries|**Dictionary<uint, ParameterEntry>**|List of parameter choices for this effect
+
+#### Public Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
 AddParameters(params **object[] prms**)|**void**|Dynamically adds object(s) to the parameter list
 ClearParameters()|**void**|Clears the established parameter list
 *override* Params()|**string**|Returns a list of parameters for this effect as a string. 
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. 
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID.
 
-#### Public Methods
-Name          |Type          |Description
-------------- | -------------|-----------------------------------------------------------------------------
-ParameterEntries|**Dictionary<uint, ParameterEntry>**|List of parameter choices for this effect
-
 
 ### CCEffectTimed : Inherits from CCEffectBase
 A Crowd Control effect active for a given duration of time
 
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+duration|**float**|Duration in seconds before the effect automatically ends
+paused|**bool**|Is the timer paused?
+displayType|**DisplayType**|Whether the timer displays text or a fill graphic
 
+#### Protected Internal Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+|*abstract* OnPauseEffect()|**void**|Invoked when an effect instance is paused
+|*abstract* OnResumeEffect()|**void**|Invoked when an effect instance is resumed
+|*abstract* OnResetEffect()|**void**|Invoked when an effect instance is reset
+|*abstract* OnStopEffect()|**bool**|
 
 ### CCEffectBidWar : Inherits from CCEffectBase
 Base effect for bid war effects
 
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+||
 
- 
+#### Public Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+||
+
