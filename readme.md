@@ -37,6 +37,44 @@ IsRunning(**CCEffectTimed** effect)|bool|Returns true if at least one timed effe
 IsPaused(**CCEffectTimed** effect)|bool|Returns true if timed effect is paused
 
 #### Static Public Member Functions
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
 PauseEffect(**CCEffectTimed** effect)|void|Resumes a timed effect
 ResumeEffect(**CCEffectTimed** effect)|void|Pauses a timed effect
-ResetEffect(**CCEffectTimed** effect)|void|Resets a timed effect to its original start time
+ResetEffect(**CCEffectTimed** effect)|void|Resets a timed effect to its original start length
+
+#### Public Attributes
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+delayBetweenEffects|float|Time to wait after triggering an effect before attempting to trigger another
+isAuthenticated|bool|Whether the connection to the server is currently initializing
+isConnecting|bool|If the client is in the process of connecting to the server
+isConnected|bool|Are you connected to the server?
+disconnectedFromError|bool|The latest disconnect occured due to an error
+
+#### Static Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+instance|CrowdControl|Singleton instance to the manager. Will be <see langword="null"/> if the behaviour isn't in the scene
+testUser|TwitchUser|Reference to the test user object. Used to dispatch local effects
+crowdUser|TwitchUser|Reference to the crowd user object. Used to dispatch pooled effects
+anonymousUser|TwitchUser|Reference to the crowd user object. Used to dispatch effects with an unknown contributor
+streamerUser|TwitchUser|Reference to the streamer user object.
+
+#### Events
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+OnConnecting|Action|Invoked when attempting a connection to the Crowd Control server
+OnConnectionError|Action|Invoked when the connection to the Crowd Control server has failed
+OnAuthenticated|Action|Invoked after having being authenticated by the Crowd Control server
+OnConnected|Action|Invoked when successfully connected to the Crowd Control server
+OnDisconnected|Action|Invoked when disconnected from the Crowd Control server
+OnNoToken|Action|Invoked when trying to start a session without a saved tokne
+OnSubmitTempToken|Action|Invoked when submitting a temporary token to the Crowd Control server
+OnTempTokenFailure|Action|Invoked when the server rejects the user's temporary token
+OnEffectTrigger|Action<**CCEffectInstance**>|Invoked when an effect is successfully triggered
+OnEffectStart|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect starts
+OnEffectStop|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect stops
+OnEffectPause|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect pauses
+OnEffectResume|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect resumes
+OnEffectReset|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect is reset
