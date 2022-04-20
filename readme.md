@@ -173,7 +173,7 @@ BidWarEntries|**Dictionary<uint, BidWarEntry>**|A collection of every bid war en
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 RegisterBidWarEntry(**BidWarEntry** entry, **CCEffectEntries** effectEntries)|**void**|Adds a new paramter to the bid war list
-PlaceBid(**uint** bidID, **uint** amount)||bool|Places a bid for one of the parameters. Returns true if there's a new winner with that bid
+PlaceBid(**uint** bidID, **uint** amount)|bool|Places a bid for one of the parameters. Returns true if there's a new winner with that bid
 *override* Params()|**string**|Returns a list of parameters for this effect as a string. 
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
