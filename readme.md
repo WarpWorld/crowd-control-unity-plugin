@@ -3,8 +3,8 @@
 This plugin integrates [Crowd Control](https://crowdcontrol.live/) functionality into Unity Projects.
  - Easy drag and drop prefab for quick game integration.
  - [Documentation](https://wiki.warp.world/en/CrowdControl/Guides/Unity)
- - Compatible with .NET Framework 4.5 and .NET Standard 2.0. NET Framework 3.5 support coming soon.
- - Working example inside Assets -> WarpWorld -> DemoGame
+ - Compatible with  .NET Framework 3.5, .NET Framework 4.5 and .NET Standard 2.0. 
+ - Working example included inside Assets -> WarpWorld -> DemoGame
  
 ## Integration Steps
  - Drag "Crowd Control Prefab" into Scene. Set appropriate GameID after speaking with Warp World Staff. Automatic application process coming soon.
@@ -55,11 +55,11 @@ disconnectedFromError|bool|The latest disconnect occured due to an error
 #### Static Properties
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
-instance|CrowdControl|Singleton instance to the manager. Will be <see langword="null"/> if the behaviour isn't in the scene
-testUser|TwitchUser|Reference to the test user object. Used to dispatch local effects
-crowdUser|TwitchUser|Reference to the crowd user object. Used to dispatch pooled effects
-anonymousUser|TwitchUser|Reference to the crowd user object. Used to dispatch effects with an unknown contributor
-streamerUser|TwitchUser|Reference to the streamer user object.
+instance|**CrowdControl**|Singleton instance to the manager. Will be <see langword="null"/> if the behaviour isn't in the scene
+testUser|**TwitchUser**|Reference to the test user object. Used to dispatch local effects
+crowdUser|**TwitchUser**|Reference to the crowd user object. Used to dispatch pooled effects
+anonymousUser|**TwitchUser**|Reference to the crowd user object. Used to dispatch effects with an unknown contributor
+streamerUser|**TwitchUser**|Reference to the streamer user object.
 
 #### Events
 Name          |Type          |Description
@@ -93,7 +93,7 @@ profileIcon|**Texture2D**|Profile icon downloaded into a 2D texture. Can be null
 profileIconColor|**Color**|Tint of the user's icon
 
 ### CCEffectBase
-Information of an effect that can be triggered.
+An effect that can be triggered a Crowd Control session.
 
 #### Properties
 Name          |Type          |Description
@@ -112,8 +112,41 @@ Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 ToggleSellable(**bool** sellable)|**void**|Toggles whether this effect can currently be sold during this session
 ToggleVisible(**bool** visible)|**void**|Toggles whether this effect is visible in the menu during this session
-virtual Params()|**string**|Returns a list of parameters for this effect as a string
-virtual CanBeRan()|**bool**|Overriden by base classes that return true if the effect is able to be ran at this time
-virtual RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Registers a paramter for this effect
-virtual HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
+*virtual* Params()|**string**|Returns a list of parameters for this effect as a string. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
+*virtual* CanBeRan()|**bool**|overriden by base classes that return true if the effect is able to be ran at this time
+*virtual* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
+*virtual* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
 
+### CCEffect : Inherits from CCEffectBase
+A single-trigger effect with no extra properties
+
+
+
+### CCEffectParameters : Inherits from CCEffectBase
+A Crowd Control effect that handles parameters
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+AddParameters(params **object[] prms**)|**void**|Dynamically adds object(s) to the parameter list
+ClearParameters()|**void**|Clears the established parameter list
+*override* Params()|**string**|Returns a list of parameters for this effect as a string. 
+*override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. 
+*override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID.
+
+#### Public Methods
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+ParameterEntries|**Dictionary<uint, ParameterEntry>**|List of parameter choices for this effect
+
+
+### CCEffectTimed : Inherits from CCEffectBase
+A Crowd Control effect active for a given duration of time
+
+
+
+### CCEffectBidWar : Inherits from CCEffectBase
+Base effect for bid war effects
+
+
+ 
