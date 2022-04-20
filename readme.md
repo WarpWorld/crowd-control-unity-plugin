@@ -112,7 +112,6 @@ Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 ToggleSellable(**bool** sellable)|**void**|Toggles whether this effect can currently be sold during this session
 ToggleVisible(**bool** visible)|**void**|Toggles whether this effect is visible in the menu during this session
-*virtual* Params()|**string**|Returns a list of parameters for this effect as a string. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
 *virtual* CanBeRan()|**bool**|overriden by base classes that return true if the effect is able to be ran at this time
 *virtual* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
 *virtual* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID. Used by **CCEffectParameters** and **CCEffectBidWar** but can be overriden by custom effect classes.
@@ -135,7 +134,6 @@ Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 AddParameters(params **object[] prms**)|**void**|Dynamically adds object(s) to the parameter list
 ClearParameters()|**void**|Clears the established parameter list
-*override* Params()|**string**|Returns a list of parameters for this effect as a string. 
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. 
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID.
 
@@ -174,7 +172,6 @@ Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 RegisterBidWarEntry(**BidWarEntry** entry, **CCEffectEntries** effectEntries)|**void**|Adds a new paramter to the bid war list
 PlaceBid(**uint** bidID, **uint** amount)|bool|Places a bid for one of the parameters. Returns true if there's a new winner with that bid
-*override* Params()|**string**|Returns a list of parameters for this effect as a string. 
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
 
@@ -201,4 +198,3 @@ unscaledTimeLeft|**float**|Unscaled game time left to execute
 isActive|**bool**|Whether the effect instance is active. True when the related Effect behaviour is enabled
 isPaused|**bool**|Whether the effect instance is paused or not
 shouldBeRunning|**bool**|Checks if the effect should be running or not, then applies the paused state based on it
-
