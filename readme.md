@@ -2,7 +2,7 @@
 
 This plugin integrates [Crowd Control](https://crowdcontrol.live/) functionality into Unity Projects.
  - Easy drag and drop prefab for quick game integration.
- - [Documentation](https://wiki.warp.world/en/CrowdControl/Guides/Unity)
+ - Documentation
  - Compatible with  .NET Framework 3.5, .NET Framework 4.5 and .NET Standard 2.0. 
  - Working example included inside Assets -> WarpWorld -> DemoGame
  
