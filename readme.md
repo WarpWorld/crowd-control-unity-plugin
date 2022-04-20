@@ -15,11 +15,11 @@ This plugin integrates [Crowd Control](https://crowdcontrol.live/) functionality
 
 ## Documentation
 
-###Crowd Control Manager (WarpWorld.CrowdControl)
+### Crowd Control Manager (WarpWorld.CrowdControl)
 
 This class instance is responsible for sending, receiving and processing all the effects. 
 
-####Public Member Functions
+#### Public Member Functions
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
 Connect()     | void         |Connects the client to the server and attempts to start a Crowd Control Session
