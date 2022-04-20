@@ -178,3 +178,47 @@ PlaceBid(**uint** bidID, **uint** amount)|bool|Places a bid for one of the param
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
 
+### CCEffectInstance
+An instance of a running Crowd Control effect. Disposed once the effect is complete.
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+effect|**CCEffectBase**|The effect this isntance was created from
+user|**TwitchUser**|The Twitch user who triggered the effect.
+retryCount|**int**|How many times this effect was attempted to be ran
+unscaledStartTime|**float**|Unscaled game time when the effect was triggered
+isTest|**bool**|True if this effect was triggered by a local test
+
+### CCEffectInstanceTimed : Inherits from CCEffectInstance
+An instance of a running Crowd Control effect. Disposed once the effect is complete.
+
+/// <summary>Reference to the target timed effect, <see langword="null"/> if <see cref="effect"/> is not timed.</summary>
+        new public CCEffectTimed effect { get; internal set; }
+
+        /// <summary>Unscaled game time when the timed effect will end. Updated on resume.</summary>
+        public float unscaledEndTime { get; internal set; }
+        /// <summary>Unscaled game time left to execute.</summary>
+        public float unscaledTimeLeft { get; internal set; }
+
+        /// <summary>
+        /// Whether the effect instance is active. <see langword="true"/> when the related Effect behaviour is enabled.
+        /// <para>When <see langword="false"/>, pending instances will not start and running instances are paused.</para>
+        /// </summary>
+        public bool isActive = true;
+
+        /// <summary>Whether the effect instance is paused or not. </summary>
+        public bool isPaused => effect.paused;
+
+        /// <summary> Checks if the effect should be running or not, then applies the paused state based on it. </summary>
+        public bool shouldBeRunning => effect.ShouldBeRunning();
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+unscaledEndTime|**float**|Unscaled game time when the timed effect will end. Updated on resume
+unscaledTimeLeft|**float**|Unscaled game time left to execute
+isActive|**bool**|Whether the effect instance is active. True when the related Effect behaviour is enabled
+isPaused|**bool**|Whether the effect instance is paused or not
+shouldBeRunning|**bool**|Checks if the effect should be running or not, then applies the paused state based on it
+
