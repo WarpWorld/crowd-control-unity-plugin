@@ -164,10 +164,17 @@ Base effect for bid war effects
 #### Properties
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
-||
+BidWarEntries|**Dictionary<uint, BidWarEntry>**|A collection of every bid war entry registered for this effect
+*override* Name|string|Gets the name of the current bid war winner. If no winner or if the winner has no name, it will return the name of the bid war effect
+*override* Icon|Sprite|Gets the icon of the current bid war winner. If no winner or if the winner has no icon, it will return the icon of the bid war effect
+*override* IconColor|Color|Gets the tint of the current bid war winner. If no winner or if the winner has no icon tint, it will return the tint of the bid war effect
 
 #### Public Methods
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
-||
+RegisterBidWarEntry(**BidWarEntry** entry, **CCEffectEntries** effectEntries)|**void**|Adds a new paramter to the bid war list
+PlaceBid(**uint** bidID, **uint** amount)||bool|Places a bid for one of the parameters. Returns true if there's a new winner with that bid
+*override* Params()|**string**|Returns a list of parameters for this effect as a string. 
+*override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list
+*override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID
 
