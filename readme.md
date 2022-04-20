@@ -39,8 +39,8 @@ IsPaused(**CCEffectTimed** effect)|bool|Returns true if timed effect is paused
 #### Static Public Member Functions
 Name          |Type          |Description
 ------------- | -------------|-----------------------------------------------------------------------------
-PauseEffect(**CCEffectTimed** effect)|void|Resumes a timed effect
-ResumeEffect(**CCEffectTimed** effect)|void|Pauses a timed effect
+DisableEffect(**CCEffectTimed** effect)|void|Pauses a timed effect
+EnableEffect(**CCEffectTimed** effect)|void|Resumes a timed effect
 ResetEffect(**CCEffectTimed** effect)|void|Resets a timed effect to its original start length
 
 #### Public Attributes
