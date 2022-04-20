@@ -135,6 +135,25 @@ ClearParameters()|**void**|Clears the established parameter list
 *override* RegisterParameters(**CCEffectEntries** effectEntries)|**void**|Takes the list of this effect's parameters and adds them to the effect list. 
 *override* HasParameterID(**uint** id)|**bool**|Returns true if this bid war is the parent of the parameter ID.
 
+### ParameterEntry : Inherits from BidWarEntry
+A parameter type that can be added to a class that inherits from CCEffectParameters
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+ParamKind|**Kind**|What kind of parameter it is. Can either be Kind.Item or Kind.Quantity
+Min|**uint**|For quantity effects. The minimum quantity the viewer can purchase for this effect.
+Max|**uint**|For quantity effects. The maximum quantity the viewer can purchase for this effect.
+Options|ParameterOption[]||For item effects. A list of parameters that can be used for this effect.
+
+### ParameterOption 
+An item entry for a list of item effects
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+Name|**string**|Name of the item
+
 ### CCEffectTimed : Inherits from CCEffectBase
 A Crowd Control effect active for a given duration of time
 
@@ -163,6 +182,16 @@ BidWarEntries|**Dictionary<uint, BidWarEntry>**|A collection of every bid war en
 *override* Name|**string**|Gets the name of the current bid war winner. If no winner or if the winner has no name, it will return the name of the bid war effect
 *override* Icon|**Sprite**|Gets the icon of the current bid war winner. If no winner or if the winner has no icon, it will return the icon of the bid war effect
 *override* IconColor|**Color**|Gets the tint of the current bid war winner. If no winner or if the winner has no icon tint, it will return the tint of the bid war effect
+
+### BidWarEntry 
+An entry that is assigned to a class that inherits from **CCEffectBidWar**
+
+#### Properties
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+Name|**string**|The name of the bid war option.
+Sprite|**Sprite**|The sprite of the bid war option.
+Tint|**Color**|The tint of the bid war option.
 
 #### Public Methods
 Name          |Type          |Description
