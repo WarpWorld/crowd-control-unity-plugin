@@ -77,4 +77,19 @@ OnEffectStart|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect star
 OnEffectStop|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect stops
 OnEffectPause|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect pauses
 OnEffectResume|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect resumes
-OnEffectReset|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect is reset
+OnEffectReset|Action<**CCEffectInstanceTimed**>|Invoked when a timed effect gets reset
+
+### TwitchUser
+Holds information about Twitch users interacting with the Crowd Control session.
+
+#### Public Attributes
+
+Name          |Type          |Description
+------------- | -------------|-----------------------------------------------------------------------------
+id|**ulong**|Unique Twitch user identifier
+name|**string**|Unique Twitch user name. Always lowercase.
+displayName|**string**|User's Display Name
+profileIconUrl|**string**|URL to download the profile icon from
+profileIcon|**Texture2D**|Profile icon downloaded into a 2D texture. Can be null 
+profileIconColor|**Color**|Tint of the user's icon
+
