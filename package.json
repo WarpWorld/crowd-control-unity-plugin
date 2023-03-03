@@ -1,0 +1,19 @@
+{
+    "name": "WarpWorld",
+    "version": "0.3.0",
+
+    "displayName": "Warp World",
+    "description": "Integration of Warp World services for Unity.",
+    "unity": "2018.2",
+
+    "keywords": [
+        "crowdcontrol",
+        "twitch"
+    ],
+
+    "author": {
+        "name": "Warp World Inc.",
+        "email": "unity@warp.world",
+        "url": "https://warp.world/"
+    }
+}
