@@ -1,5 +1,9 @@
 # Crowd Control Unity Plugin
 
+> [!WARNING]
+> **Deprecated:** This is the legacy plugin and is no longer actively maintained.
+> Please use [CrowdControl.Client.Unity.Package](https://github.com/WarpWorld/CrowdControl.Client.Unity.Package) instead.
+
 This plugin integrates [Crowd Control](https://crowdcontrol.live/) functionality into Unity Projects.
  - Easy drag and drop prefab for quick game integration.
  - Documentation
